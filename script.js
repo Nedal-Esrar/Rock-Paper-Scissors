@@ -3,7 +3,10 @@ const startButton = document.querySelector('.start-button');
 startButton.addEventListener('click', (e) => {
   e.target.style['display'] = 'none';
 
-  const gameSection = document.querySelector('.game-section');
+  const gameSectionStyle = document.querySelector('.game-section').style;
 
-  gameSection.style['display'] = 'inline-block';
+  gameSectionStyle['display'] = 'flex';
+  gameSectionStyle['flex-direction'] = 'column';
+  gameSectionStyle['align-items'] = 'center';
 });
+

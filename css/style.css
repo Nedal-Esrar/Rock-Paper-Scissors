@@ -4,9 +4,9 @@
   --main-background: #222831;
   --other-background: #111720;
 
-  --secondary-background: #41454d;
-  --secondary-dark-hover: #4a4f57;
-  --secondary-dark-active: #5b5f68;
+  --btn-background: #41454d;
+  --btn-background-hover: #4a4f57;
+  --btn-background-active: #5b5f68;
 }
 
 * {
@@ -46,11 +46,11 @@ header {
   color: var(--font-color);
   border: 1px solid ;
   border-radius: 5px;
-  background-color: var(--secondary-background);
+  background-color: var(--btn-background);
 }
 
 footer {
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,4 +61,76 @@ footer {
 
 .game-section {
   display: none;
+}
+
+.game-end-info {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.round-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 11px 0;
+}
+
+.players-choices {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 25px 0px 10px 0;
+}
+
+.player-choice, .computer-choice {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.players-scores {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.player-score-container, .computer-score-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 60px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 160px;
+  height: 160px;
+  background-color: var(--btn-background);
+  border: 1px solid var(--btn-background);
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: var(--btn-background-hover);
+}
+
+.btn:active {
+  background-color: var(--btn-background-active);
+}
+
+.symbol {
+  font-size: 80px;
+  margin-bottom: 20px;
 }
