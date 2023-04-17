@@ -22,7 +22,7 @@
     </header>
 
     <main>
-      <button class="start-button">START</button>
+      <button class="btn cmd-btn" id="start-btn">START</button>
 
       <div class="game-section">
         <div class="game-end-info">
@@ -32,32 +32,48 @@
         <div class="round-result">Pick One!</div>
 
         <div class="players-choices">
-          <div class="player-choice">...</div>
-          <div class="computer-choice">...</div>
+          <div class="player-choice">
+            <div class="symbol">.</div>
+          </div>
+
+          <div class="cmp"></div>
+          
+          <div class="computer-choice">
+            <div class="symbol">.</div>
+          </div>
         </div>
 
         <div class="players-scores">
-          <div class="player-score-container">
+          <div class="score-container">
             player: <span class="player-score">0</span>
           </div>
-          <div class="computer-score-container">
+          <div class="score-container">
             computer: <span class="computer-score">0</span>
           </div>
         </div>
 
-        <div class="btns">
-          <button class="btn rock-btn">
+        <div class="play-btns">
+          <button class="btn play-btn" id="rock-btn">
             <div class="symbol">✊</div>
           </button>
-          <button class="btn paper-btn">
+          <button class="btn play-btn" id="paper-btn">
             <div class="symbol">✋</div>
           </button>
-          <button class="btn scrs-btn">
+          <button class="btn play-btn" id="scrs-btn">
             <div class="symbol">✌️</div>
           </button>
         </div>
+
+        <button class="btn cmd-btn" id="reset-btn">Reset</button>
       </div>
     </main>
+
+    <div class="game-over-modal">
+      <p class="game-over-msg"></p>
+      <button class="btn cmd-btn" id="play-again-btn">Play Again</button>
+    </div>
+
+    <div class="overlay"></div>
 
     <footer>
       Copyright &copy; 2023 Nedal-Esrar

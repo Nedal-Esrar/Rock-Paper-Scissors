@@ -39,14 +39,17 @@ header {
   font-size: 25px;
 }
 
-.start-button {
+.cmd-btn {
   cursor: pointer;
-  font-size: 40px;
   padding: 20px;
-  color: var(--font-color);
-  border: 1px solid ;
+  color: inherit;
+  border: 1px solid var(--font-color);
   border-radius: 5px;
   background-color: var(--btn-background);
+}
+
+#start-btn {
+  font-size: 40px;
 }
 
 footer {
@@ -66,23 +69,25 @@ footer {
 .game-end-info {
   font-size: 13px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .round-result {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 11px 0;
+  margin: 11px;
+  font-size: 22px;
 }
 
 .players-choices {
   display: flex;
   justify-content: space-between;
-  width: 450px;
-  margin: 25px 0px 10px 0;
+  min-width: 380px;
+  margin: 25px 10px 0;
 }
 
-.player-choice, .computer-choice {
+.player-choice, .computer-choice, .cmp {
   width: 100px;
   height: 100px;
   display: flex;
@@ -93,11 +98,11 @@ footer {
 .players-scores {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  min-width: 330px;
   margin-bottom: 20px;
 }
 
-.player-score-container, .computer-score-container {
+.score-container {
   width: 50px;
   height: 50px;
   display: flex;
@@ -105,15 +110,15 @@ footer {
   align-items: center;
 }
 
-.btns {
+.play-btns {
   display: flex;
   justify-content: space-between;
   gap: 30px;
 
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
-.btn {
+.play-btn {
   cursor: pointer;
   width: 160px;
   height: 160px;
@@ -133,4 +138,83 @@ footer {
 .symbol {
   font-size: 80px;
   margin-bottom: 20px;
+}
+
+.game-over-modal {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+
+  width: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--main-background);
+
+  text-align: center;
+  font-size: 30px;
+
+  user-select: none;
+
+  transform: translate(-50%, -50%) scale(0);
+  transition: 150ms ease-in-out;
+}
+
+.game-over-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.game-over-msg {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#play-again-btn {
+  font-size: 23px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.6;
+}
+
+.overlay.active {
+  display: block;
+}
+
+#reset-btn {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 550px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .round-result {
+    font-size: 20px;
+  }
+
+  .play-btns {
+    gap: 20px;
+  }
+
+  .play-btn {
+    width: 100px;
+    height: 100px;
+  }
+
+  .symbol {
+    font-size: 50px;
+  }
+
+  .game-over-modal {
+    width: 95%;
+  }
 }
