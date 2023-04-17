@@ -1,0 +1,64 @@
+:root {
+  --font-color: #f3c04a;
+
+  --main-background: #222831;
+  --other-background: #111720;
+
+  --secondary-background: #41454d;
+  --secondary-dark-hover: #4a4f57;
+  --secondary-dark-active: #5b5f68;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--font-color);
+  min-height: 100vh;
+  background-color: var(--main-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  background-color: var(--other-background);
+  width: 100vw;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.start-button {
+  cursor: pointer;
+  font-size: 40px;
+  padding: 20px;
+  color: var(--font-color);
+  border: 1px solid ;
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+}
+
+footer {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  width: 100vw;
+  background-color: var(--other-background);
+}
+
+.game-section {
+  display: none;
+}
