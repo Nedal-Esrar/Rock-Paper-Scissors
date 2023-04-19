@@ -157,7 +157,7 @@ footer {
   user-select: none;
 
   transform: translate(-50%, -50%) scale(0);
-  transition: 150ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 .game-over-modal.active {

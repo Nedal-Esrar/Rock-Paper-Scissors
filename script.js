@@ -10,7 +10,7 @@ startButton.addEventListener('click', (e) => {
   gameSectionStyle['align-items'] = 'center';
 });
 
-let choices = ['✊', '✋', '✌️'];
+const choices = ['✊', '✋', '✌️'];
 
 let playerScore = 0;
 let computerScore = 0;
@@ -21,9 +21,9 @@ const scrsBtn = document.getElementById('scrs-btn');
 
 const roundResultLabel = document.querySelector('.round-result');
 
-const playerChoiceLabel = document.querySelector('.player-choice')
+const playerChoiceSymbol = document.querySelector('.player-choice .symbol')
 const cmpLabel = document.querySelector('.cmp')
-const computerChoiceLabel = document.querySelector('.computer-choice')
+const computerChoiceSymbol = document.querySelector('.computer-choice .symbol')
 
 const playerScoreLabel = document.querySelector('.player-score');
 const computerScoreLabel = document.querySelector('.computer-score');
@@ -45,23 +45,23 @@ function getRandomChoice() {
   return Math.floor(Math.random() * 3);
 }
 
-function updateChoiceLabels(playerChoice, computerChoice) {
-  playerChoiceLabel.innerHTML = `<div class="symbol">${choices[playerChoice]}</div>`;
-  computerChoiceLabel.innerHTML = `<div class="symbol">${choices[computerChoice]}</div>`;
+function updateChoiceSymbols(playerChoice, computerChoice) {
+  playerChoiceSymbol.textContent = choices[playerChoice];
+  computerChoiceSymbol.textContent = choices[computerChoice];
 }
 
 function setResult(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
-    roundResultLabel.textContent = 'Tie!';
     cmpLabel.textContent = '=';
+    roundResultLabel.textContent = 'Tie!';
   }
   else if (playerChoice === (computerChoice + 1) % 3) {
-    roundResultLabel.textContent = 'Player Wins this Round!';
     cmpLabel.textContent = '>';
+    roundResultLabel.textContent = 'Player Wins this Round!';
   }
   else {
-    roundResultLabel.textContent = 'Computer Wins this Round!';
     cmpLabel.textContent = '<';
+    roundResultLabel.textContent = 'Computer Wins this Round!';
   }
 }
 
@@ -82,8 +82,33 @@ function showGameOverModal() {
   overlay.classList.add('active');
 }
 
+function hideGameOverModal() {
+  gameOverModal.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
 function setGameOverMessage() {
   gameOverMsg.textContent = playerScore === 5 ? "Player Wins!" : "Computer Wins!";
+}
+
+function resetRound() {
+  roundResultLabel.textContent = 'Pick One!';
+  
+  playerChoiceSymbol.textContent = '.';
+  computerChoiceSymbol.innerHTML = '.';
+  cmpLabel.textContent = '';
+}
+
+function disablePlayBtns() {
+  rockBtn.disabled = true;
+  paperBtn.disabled = true;
+  scrsBtn.disabled = true;
+}
+
+function enablePlayBtns() {
+  rockBtn.disabled = false;
+  paperBtn.disabled = false;
+  scrsBtn.disabled = false;
 }
 
 function handleClick(playerChoice) {
@@ -95,7 +120,7 @@ function handleClick(playerChoice) {
 
   const computerChoice = getRandomChoice();
 
-  updateChoiceLabels(playerChoice, computerChoice);
+  updateChoiceSymbols(playerChoice, computerChoice);
 
   setResult(playerChoice, computerChoice);
 
@@ -110,40 +135,22 @@ function handleClick(playerChoice) {
     return;
   }
 
-  rockBtn.disabled = true;
-  paperBtn.disabled = true;
-  scrsBtn.disabled = true;
+  disablePlayBtns();
 
   setTimeout(() => {
-    // Reset Choices and Result.
-    roundResultLabel.textContent = 'Pick One!';
+    resetRound();
 
-    playerChoiceLabel.innerHTML = '<div class="symbol">.</div>';
-    computerChoiceLabel.innerHTML = '<div class="symbol">.</div>';
-    cmpLabel.textContent = '';
-
-    rockBtn.disabled = false;
-    paperBtn.disabled = false;
-    scrsBtn.disabled = false;
-  }, 800);
+    enablePlayBtns();
+  }, 1000);
 }
 
 function reset() {
   playerScore = computerScore = 0;
 
-  roundResultLabel.textContent = 'Pick One!';
-
-  playerChoiceLabel.innerHTML = '<div class="symbol">.</div>';
-  computerChoiceLabel.innerHTML = '<div class="symbol">.</div>';
-  cmpLabel.textContent = '';
+  resetRound();
 
   playerScoreLabel.textContent = 0;
   computerScoreLabel.textContent = 0;
-}
-
-function hideGameOverModal() {
-  gameOverModal.classList.remove('active');
-  overlay.classList.remove('active');
 }
 
 rockBtn.addEventListener('click', () => handleClick(0));
@@ -152,6 +159,7 @@ scrsBtn.addEventListener('click', () => handleClick(2));
 
 playAgainBtn.addEventListener('click', () => reset());
 playAgainBtn.addEventListener('click', () => hideGameOverModal());
+
 resetBtn.addEventListener('click', () => reset());
 
 overlay.addEventListener('click', () => hideGameOverModal());
