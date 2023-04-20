@@ -28,7 +28,7 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
   padding: 15px 0;
   background-color: var(--other-background);
@@ -70,6 +70,7 @@ footer {
   font-size: 13px;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .round-result {
@@ -200,7 +201,7 @@ footer {
   }
 
   .round-result {
-    font-size: 20px;
+    font-size: 14px;
   }
 
   .play-btns {
@@ -210,6 +211,22 @@ footer {
   .play-btn {
     width: 100px;
     height: 100px;
+  }
+
+  .cmd-btn {
+    padding: 16px;
+  }
+
+  .players-choices {
+    min-width: 280px;
+  }
+
+  .players-scores {
+    min-width: 247px;
+  }
+
+  .score-container {
+    font-size: 14px;
   }
 
   .symbol {
