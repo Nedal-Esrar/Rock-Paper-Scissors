@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   color: var(--font-color);
   min-height: 100vh;
   background-color: var(--main-background);
@@ -87,7 +87,9 @@ footer {
   margin: 25px 10px 0;
 }
 
-.player-choice, .computer-choice, .cmp {
+.player-choice,
+.computer-choice,
+.cmp {
   width: 100px;
   height: 100px;
   display: flex;
