@@ -126,7 +126,7 @@ function handleClick(playerChoice) {
   if (isGameOver()) {
     showGameOverModal();
 
-    // set modal message for once.
+    // set modal message once.
     setGameOverMessage();
 
     return;
